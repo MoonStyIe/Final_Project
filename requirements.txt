@@ -1,0 +1,12 @@
+pandas
+matplotlib
+seaborn
+plotly
+scikit-learn
+streamlit
+geopandas
+folium
+streamlit-option-menu
+pingouin
+jupyterlab
+pandas-gbq
