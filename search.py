@@ -14,6 +14,9 @@ def run_search():
 # 경기도 시별 탭
         submenu = st.sidebar.selectbox('시별', ['수원시', '성남시', '의정부시', '안양시', '부천시', '광명시', '평택시', '동두천시', '안산시', '고양시'])
         if submenu == '수원시':
+            st.markdown("""
+            *※ 수원시 조회결과입니다. ※*
+            """)
             image_1 = Image.open('img/suwon.jpg')
             st.image(image_1)
 # 강원도 시별 탭
