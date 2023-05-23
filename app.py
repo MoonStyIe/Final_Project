@@ -1,5 +1,12 @@
+# 라이브러리
 import streamlit as st
+import pandas as pd
+import numpy as np
+import streamlit as st
+
+# 함수 import
 from streamlit_option_menu import option_menu
+from search import run_search
 
 # 도메인
 st.set_page_config(page_title='도시 양극화 분석', page_icon='🌆')
@@ -32,3 +39,8 @@ if selected == "🏠 Home":
 # 구분선
     st.write('<hr>', unsafe_allow_html=True)
 
+# 조회 탭
+elif selected == "🔎 조회":
+    run_search()
+
+# elif selected == "📊 EDA":
