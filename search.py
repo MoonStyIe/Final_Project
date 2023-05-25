@@ -8,17 +8,33 @@ import streamlit as st
 from PIL import Image
 
 def run_search():
-# 도별 탭
-    sidemenu = st.sidebar.selectbox('도별', ['경기도', '강원도', '경상북도', '경상남도', '전라북도', '전라남도', '충청북도', '충청남도'])
-    if sidemenu == '경기도':
-# 경기도 시별 탭
-        submenu = st.sidebar.selectbox('시별', ['수원시', '성남시', '의정부시', '안양시', '부천시', '광명시', '평택시', '동두천시', '안산시', '고양시'])
-        if submenu == '수원시':
+# 행정구역별 탭
+    sidemenu = st.sidebar.selectbox('행정구역별', ['세종특별시', '대전광역시', '충청북도', '충청남도'])
+    if sidemenu == '세종특별시':
+# 세종특별시 구별 탭
+        submenu = st.sidebar.selectbox('구별', ['구이름을', '몰라요'])
+        if submenu == '구이름을':
             st.markdown("""
-            *※ 수원시 조회결과입니다. ※*
+            *※ 조회결과입니다. ※*
             """)
-            image_1 = Image.open('img/suwon.jpg')
-            st.image(image_1)
-# 강원도 시별 탭
-    elif sidemenu == '강원도':
-        submenu2 = st.sidebar.selectbox('시별', ['춘천시', '원주시', '강릉시', '동해시', '태백시', '속초시', '삼척시', '홍천시', '횡성시', '영월시'])
+# 대전관역시 구별 탭
+    elif sidemenu == '대전광역시':
+        submenu2 = st.sidebar.selectbox('구별', ['구이름 하나도', '모릅니다.'])
+        if submenu2 == '구이름 하나도':
+            st.markdown("""
+            *※ 조회결과입니다. ※*
+            """)
+# 충청북도 시별 탭
+    elif sidemenu == '충청북도':
+        submenu3 = st.sidebar.selectbox('시별', ['시1', '시2'])
+        if submenu3 == '시1':
+            st.markdown("""
+            *※ 조회결과입니다. ※*
+            """)
+# 충청남도 시별 탭
+    elif sidemenu == '충청남도':
+        submenu4 = st.sidebar.selectbox('시별', ['시1', '시2'])
+        if submenu4 == '시1':
+            st.markdown("""
+            *※ 조회결과입니다. ※*
+            """)
