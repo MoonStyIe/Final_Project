@@ -8,7 +8,7 @@ from google.cloud import storage
 # 함수 import
 from streamlit_option_menu import option_menu
 from search import run_search
-# from utils import load_bigquery
+from data import run_data
 
 # 도메인
 st.set_page_config(page_title='도시 양극화 분석', page_icon='🌆')
@@ -45,7 +45,8 @@ if selected == "🏠 Home":
 elif selected == "🔎 조회":
     run_search()
 
-# elif selected == "📁 데이터":
+elif selected == "📁 데이터":
+    run_data()
 
 
 # elif selected == "📊 EDA":
