@@ -17,8 +17,8 @@ from streamlit_folium import folium_static
 import folium
 
 def city():
-    # prepare and read data
-    shape = r'C:/Users/YONSAI/Desktop/Final_Project/data/Mapboxgl_package/data/siig.shp'
+    # 데이터 불러오기
+    shape = r'C:\Users\YONSAI\Desktop\Final_Project\data\siig.shp'
     data = gpd.read_file(shape, encoding = 'cp949')
 
     # 데이터프레임의 일부를 선택
@@ -29,25 +29,25 @@ def city():
     geometry = pd.concat([daejeon, sejong, chungcheong]).reset_index(drop = True)
 
     # 열 이름 변경을 위한 딕셔너리
-    new_column_names = {'SIG_CD': '행정코드', 'SIG_ENG_NM': '행정영어', 'SIG_KOR_NM': '행정구역', 'geometry': 'geometry'}
+    new_column_names = {'SIG_CD' : '행정코드', 'SIG_ENG_NM' : '행정영어', 'SIG_KOR_NM' : '행정구역', 'geometry' : 'geometry'}
 
     # 열 이름 변경 적용
-    geometry = geometry.rename(columns=new_column_names)
+    geometry = geometry.rename(columns = new_column_names)
 
-    data = pd.read_csv(r'C:/Users/YONSAI/Desktop/Final_Project/data/Mapboxgl_package/data/1인당_GRDP.csv', encoding='cp949')
+    data = pd.read_csv(r'C:\Users\YONSAI\Desktop\Final_Project\data\1인당_GRDP.csv', encoding='cp949')
 
     # 데이터 합치기
-    data = pd.merge(geometry, data, on='행정구역', how='outer')
+    data = pd.merge(geometry, data, on = '행정구역', how = 'outer')
 
     # 열 제거
-    data.drop(columns=['행정코드', '행정영어'], axis=1, inplace=True)
+    data.drop(columns = ['행정코드', '행정영어'], axis = 1, inplace=True)
 
     # 데이터 채우기
     data.iloc[6:10, 2:] = data.iloc[36, 2:]  # 청주시
     data.iloc[20:22, 2:] = data.iloc[37, 2:]  # 천안시
 
     # 행 제거
-    data.drop(index=[36, 37], axis=0, inplace=True)
+    data.drop(index = [36, 37], axis = 0, inplace = True)
 
     # 10분위 수
     column_to_divide = '2020년'  # 분위를 계산할 열 선택
@@ -56,11 +56,8 @@ def city():
 
     data['10분위수'] = percentiles + 1
 
-    # GeoJSON으로 변환하여 저장합니다
-    data.to_file(r'C:/Users/YONSAI/Desktop/Final_Project/data/Mapboxgl_package/data/1인당_GRDP.geojson', driver='GeoJSON')
-
-    geo_data = r'C:/Users/YONSAI/Desktop/Final_Project/data/Mapboxgl_package/data/1인당_GRDP.geojson'
-    with open(geo_data, encoding='utf-8') as f:
+    geo_data = r'C:\Users\YONSAI\Desktop\Final_Project\data\1인당_GRDP.geojson'
+    with open(geo_data, encoding = 'utf-8') as f:
         geo_data = json.loads(f.read())
 
     # 토큰
@@ -70,25 +67,24 @@ def city():
     center = [127.489, 36.6425]
 
     # 시각화 할 값에 따른 색상의 범주를 지정해줍니다.
-    color_breaks = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    color_stops = create_color_stops(color_breaks, colors='YlOrBr')
+    color_breaks = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+    color_stops = create_color_stops(color_breaks, colors = 'YlOrBr')
 
     # ChoroplethViz 를 그립니다.
     viz = ChoroplethViz(
-        access_token=token,
-        data=geo_data,
-        color_property='10분위수',
-        color_stops=color_stops,
-        center=center,
-        line_color='black',
-        line_width=3,
-        line_opacity=1,
-        opacity=1,
-        zoom=8,
-        below_layer='poi-label'
+        access_token = token,
+        data = geo_data,
+        color_property = '10분위수',
+        color_stops = color_stops,
+        center = center,
+        line_color = 'black',
+        line_width = 3,
+        line_opacity = 1,
+        opacity = 1,
+        zoom = 8,
+        below_layer = 'poi-label'
     )
 
-    viz.show()
 def run_search():
 # 행정구역별 탭
     sidemenu = st.sidebar.selectbox('행정구역별', ['세종특별자치시', '대전광역시', '충청북도', '충청남도'])

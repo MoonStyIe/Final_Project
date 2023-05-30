@@ -2,23 +2,19 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import streamlit as st
-from google.cloud import storage
 from PIL import Image
-
-# 함수 import
 from streamlit_option_menu import option_menu
 from search import run_search
 from data import run_data
 
 # 도메인
-st.set_page_config(page_title='도시 양극화 분석', page_icon='🌆', layout='wide')
+st.set_page_config(page_title = '도시 양극화 분석', page_icon = '🌆', layout = 'wide')
 
 # 홈
-st.markdown("<h2 style='text-align: center; color: #333333;'>공간 빅데이터를 활용한 도시 양극화 분석</span></span>",unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: #333333;'>공간 빅데이터를 활용한 도시 양극화 분석</span></span>", unsafe_allow_html = True)
 selected = option_menu(None, ["🏠 소개", "🔎 행정구역별 소득분포", "📁 데이터", "📊 EDA"],
-    icons = ['🏠', '🔎', '📁', '📊'],default_index=0, orientation="horizontal",
-    styles={
+    icons = ['🏠', '🔎', '📁', '📊'], default_index = 0, orientation = "horizontal",
+    styles = {
         "container": {"padding": "0!important", "background-color": "#cccccc"},
         "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
         "nav-link-selected": {"background-color": "red"},

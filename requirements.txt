@@ -10,3 +10,5 @@ streamlit-option-menu
 pingouin
 jupyterlab
 pandas-gbq
+mapboxgl
+streamlit_folium
