@@ -8,6 +8,7 @@ import pandas_gbq # 구글 빅쿼리와 함께 사용할 수 있는 패키지, p
 
 # API Key Settings
 from utils import credentials, SERVICE_KEY
+
 client = bigquery.Client(credentials=credentials)
 
 def aptCrawling(SERVICE_KEY):
