@@ -27,12 +27,7 @@ selected = option_menu(None, ["🏠 소개", "🔎 조회", "📁 데이터", "�
 
 # 홈 탭
 if selected == "🏠 소개":
-# Tool
-    c1, c2, c3, c4= st.columns(4)
-    c1.image(Image.open('img/excel.png'))
-    c2.image(Image.open('img/powerpoint.png'))
-    c3.image(Image.open('img/python.png'))
-    c4.image(Image.open('img/pycharm.png'))
+
 # 프로젝트 개요
     st.markdown("<h2 style='font-size: 24px; color: #333333;'>🔬 프로젝트 개요</h2>", unsafe_allow_html=True)
     st.write(
@@ -56,9 +51,11 @@ if selected == "🏠 소개":
     markdown_string = (
         "[![Blogger](https://img.shields.io/badge/Blogger-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://moonstyle1997.tistory.com/)\n"
         "[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MoonStyIe/Final_Project)\n"
-        "[![Microsoft PowerPoint](https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)](https://github.com/MoonStyIe/Parkinson/blob/9bed58006a8d646d4058b96eca4f8704263e94c2/pdf/2%EC%A1%B0_%ED%8C%8C%ED%82%A8%EC%8A%A8_%EC%A7%88%EB%B3%91_%EC%A7%84%EB%8B%A8%EC%98%88%EC%B8%A1.pdf)\n"
         "[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://youtu.be/XZtytuxL8ws)\n"
         "[![Dash](https://img.shields.io/badge/dash-008DE4?style=for-the-badge&logo=dash&logoColor=white)](https://youtu.be/XZtytuxL8ws?t=1073)\n"
+        "[![PyCharm](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green)](https://www.jetbrains.com/ko-kr/pycharm/download/#section=windows)\n"
+        "[![Microsoft PowerPoint](https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)](https://github.com/MoonStyIe/Parkinson/blob/9bed58006a8d646d4058b96eca4f8704263e94c2/pdf/2%EC%A1%B0_%ED%8C%8C%ED%82%A8%EC%8A%A8_%EC%A7%88%EB%B3%91_%EC%A7%84%EB%8B%A8%EC%98%88%EC%B8%A1.pdf)\n"
+        "[![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/ko-kr/microsoft-365/excel)\n"
     )
 
     st.markdown(markdown_string, unsafe_allow_html=True)
