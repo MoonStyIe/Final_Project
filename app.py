@@ -28,11 +28,11 @@ selected = option_menu(None, ["🏠 소개", "🔎 조회", "📁 데이터", "�
 # 홈 탭
 if selected == "🏠 소개":
 # Tool
-    c1, c2, c3, c4, c5 = st.columns(5)
-    c1.image(Image.open('data/excel.png'))
-    c2.image(Image.open('data/powerpoint.png'))
-    c3.image(Image.open('data/python.png'))
-    c4.image(Image.open('data/pycharm.png'))
+    c1, c2, c3, c4= st.columns(4)
+    c1.image(Image.open('img/excel.png'))
+    c2.image(Image.open('img/powerpoint.png'))
+    c3.image(Image.open('img/python.png'))
+    c4.image(Image.open('img/pycharm.png'))
 # 프로젝트 개요
     st.markdown("<h2 style='font-size: 24px; color: #333333;'>🔬 프로젝트 개요</h2>", unsafe_allow_html=True)
     st.write(
