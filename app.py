@@ -16,7 +16,7 @@ st.set_page_config(page_title='도시 양극화 분석', page_icon='🌆', layou
 
 # 홈
 st.markdown("<h2 style='text-align: center; color: #333333;'>공간 빅데이터를 활용한 도시 양극화 분석</span></span>",unsafe_allow_html=True)
-selected = option_menu(None, ["🏠 소개", "🔎 조회", "📁 데이터", "📊 EDA"],
+selected = option_menu(None, ["🏠 소개", "🔎 행정구역별 조회", "📁 데이터", "📊 EDA"],
     icons = ['🏠', '🔎', '📁', '📊'],default_index=0, orientation="horizontal",
     styles={
         "container": {"padding": "0!important", "background-color": "#cccccc"},
@@ -43,9 +43,6 @@ if selected == "🏠 소개":
 # 구분선
     st.write('<hr>', unsafe_allow_html=True)
 
-# 구분선
-    st.write('<hr>', unsafe_allow_html=True)
-
 # 링크
     st.markdown("<h2 style='font-size: 24px; color: #333333;'>🔗 링크</h2>", unsafe_allow_html=True)
     markdown_string = (
@@ -62,7 +59,7 @@ if selected == "🏠 소개":
     st.markdown(markdown_string, unsafe_allow_html=True)
 
 # 조회 탭
-elif selected == "🔎 조회":
+elif selected == "🔎 행정구역별 조회":
     run_search()
 
 elif selected == "📁 데이터":
