@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from google.cloud import storage
+from PIL import Image
 
 # 함수 import
 from streamlit_option_menu import option_menu
@@ -11,11 +12,11 @@ from search import run_search
 from data import run_data
 
 # 도메인
-st.set_page_config(page_title='도시 양극화 분석', page_icon='🌆')
+st.set_page_config(page_title='도시 양극화 분석', page_icon='🌆', layout='wide')
 
 # 홈
 st.markdown("<h2 style='text-align: center; color: #333333;'>공간 빅데이터를 활용한 도시 양극화 분석</span></span>",unsafe_allow_html=True)
-selected = option_menu(None, ["🏠 Home", "🔎 조회", "📁 데이터", "📊 EDA"],
+selected = option_menu(None, ["🏠 소개", "🔎 조회", "📁 데이터", "📊 EDA"],
     icons = ['🏠', '🔎', '📁', '📊'],default_index=0, orientation="horizontal",
     styles={
         "container": {"padding": "0!important", "background-color": "#cccccc"},
@@ -25,7 +26,13 @@ selected = option_menu(None, ["🏠 Home", "🔎 조회", "📁 데이터", "�
 )
 
 # 홈 탭
-if selected == "🏠 Home":
+if selected == "🏠 소개":
+# Tool
+    c1, c2, c3, c4, c5 = st.columns(5)
+    c1.image(Image.open('data/excel.png'))
+    c2.image(Image.open('data/powerpoint.png'))
+    c3.image(Image.open('data/python.png'))
+    c4.image(Image.open('data/pycharm.png'))
 # 프로젝트 개요
     st.markdown("<h2 style='font-size: 24px; color: #333333;'>🔬 프로젝트 개요</h2>", unsafe_allow_html=True)
     st.write(
@@ -40,6 +47,21 @@ if selected == "🏠 Home":
 
 # 구분선
     st.write('<hr>', unsafe_allow_html=True)
+
+# 구분선
+    st.write('<hr>', unsafe_allow_html=True)
+
+# 링크
+    st.markdown("<h2 style='font-size: 24px; color: #333333;'>🔗 링크</h2>", unsafe_allow_html=True)
+    markdown_string = (
+        "[![Blogger](https://img.shields.io/badge/Blogger-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://moonstyle1997.tistory.com/)\n"
+        "[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MoonStyIe/Final_Project)\n"
+        "[![Microsoft PowerPoint](https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)](https://github.com/MoonStyIe/Parkinson/blob/9bed58006a8d646d4058b96eca4f8704263e94c2/pdf/2%EC%A1%B0_%ED%8C%8C%ED%82%A8%EC%8A%A8_%EC%A7%88%EB%B3%91_%EC%A7%84%EB%8B%A8%EC%98%88%EC%B8%A1.pdf)\n"
+        "[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://youtu.be/XZtytuxL8ws)\n"
+        "[![Dash](https://img.shields.io/badge/dash-008DE4?style=for-the-badge&logo=dash&logoColor=white)](https://youtu.be/XZtytuxL8ws?t=1073)\n"
+    )
+
+    st.markdown(markdown_string, unsafe_allow_html=True)
 
 # 조회 탭
 elif selected == "🔎 조회":
