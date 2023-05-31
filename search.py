@@ -10,6 +10,7 @@ import streamlit_folium
 import folium
 from streamlit_option_menu import option_menu
 from streamlit_folium import st_folium
+import time
 
 def data_processing():
     # 데이터 불러오기
@@ -49,7 +50,7 @@ def data_folium_all(geo_data, data):
 
     folium.LayerControl().add_to(map)
 
-    st_folium(map, width=800, height=600)
+    st_folium(map, width=1000, height=600)
 
 def data_folium_local(geo_data, data, percentile):
     data_local = data[data['10분위수'] == percentile]
@@ -85,7 +86,7 @@ def data_folium_local(geo_data, data, percentile):
 
     folium.LayerControl().add_to(map) # 상단 컬러바
 
-    st_folium(map, width=800, height=600)
+    st_folium(map, width=1000, height=600)
 
 # 데이터프레임 시각화
 def data_visual_all(data): # 전체 데이터 출력
@@ -101,30 +102,104 @@ def run_search():
     geo_data, grdp_data = data_processing()
 
     st.markdown("""
-    ## 🔎 행정구역별 소득분포 조회결과
-    *※ 왼쪽 사이드바에서 확인하고자 하는 행정구역을 선택하신 후 조회 버튼을 눌러주세요 ※*
+    ### 🔎 행정구역별 소득분포 조회결과
+    *※ 왼쪽 사이드바에서 확인하고자 하는 행정구역과 10분위수를 선택해주세요 ※*
     # """)
 
     # 해당하는 행정구역 선택
-    area_select = st.sidebar.selectbox('행정구역', ['충청도', '세종특별시'])
+    area_select = st.sidebar.selectbox('⏏️ 행정구역', ['충청도', '세종특별시'])
 
     # 화면을 분할하고 첫 번재 컬럼의 너비를 두 번재 컬럼의 2배로 설정
     c1, c2 = st.columns([2, 1])
     if area_select == '충청도':
         grdp_select = st.sidebar.slider('10분위수', min_value = 0, max_value = 10, value = None, step=1)
-        button
-        if st.sidebar.button('조회'):
-            result_container = st.empty() # 결과를 보여줄 공간확보
+        # button_clicked = st.sidebar.button('조회')
+        # if button_clicked:
+        #     with st.spinner('로딩중…'):
+        if grdp_select == 0:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_all(geo_data, grdp_data)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_all(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']])
 
-            if grdp_select is 0:
-                with result_container:
-                    with c1:
-                        data_folium_all(geo_data, grdp_data)
-                    with c2:
-                        data_visual_all(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']])
-            else:
-                with result_container:
-                    with c1:
-                        data_folium_local(geo_data, grdp_data, 1)
-                    with c2:
-                        data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 1)
+        elif grdp_select == 1:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 1)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 1)
+
+        elif grdp_select == 2:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 2)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 2)
+
+        elif grdp_select == 3:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 3)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 3)
+
+        elif grdp_select == 4:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 4)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 4)
+
+        elif grdp_select == 5:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 5)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 5)
+
+        elif grdp_select == 6:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 6)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 6)
+
+        elif grdp_select == 7:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 7)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 7)
+
+        elif grdp_select == 8:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 8)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 8)
+
+        elif grdp_select == 9:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 9)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 9)
+
+        elif grdp_select == 10:
+            with c1:
+                st.markdown("##### 🗺️ 소득분포")
+                data_folium_local(geo_data, grdp_data, 10)
+            with c2:
+                st.markdown("##### 📈 10분위수")
+                data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 10)
