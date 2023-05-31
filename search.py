@@ -6,14 +6,17 @@ import json
 import pandas as pd
 import geopandas as gpd
 import warnings
+import streamlit_folium
 import folium
+from streamlit_option_menu import option_menu
+from streamlit_folium import st_folium
 
 def data_processing():
     # 데이터 불러오기
-    geo_data = r'C:\Users\YONSAI\Desktop\Python_Studying\Mapboxgl_package\data\GRDP.geojson'
-    with open(geo_data) as f:
+    geo_data = r'C:\Users\YONSAI\Desktop\Final_Project\data\GRDP.geojson'
+    with open(geo_data, encoding = 'utf-8') as f:
         geo_data = json.loads(f.read())
-    grdp_data = pd.read_csv(r'C:\Users\YONSAI\Desktop\Python_Studying\Mapboxgl_package\data\GRDP_최종.csv',
+    grdp_data = pd.read_csv(r'C:\Users\YONSAI\Desktop\Final_Project\data\GRDP_최종.csv',
                             encoding = 'cp949')
     return geo_data, grdp_data
 def data_folium_all(geo_data, data):
@@ -46,7 +49,7 @@ def data_folium_all(geo_data, data):
 
     folium.LayerControl().add_to(map)
 
-    map
+    st_folium(map, width=800, height=600)
 
 def data_folium_local(geo_data, data, percentile):
     data_local = data[data['10분위수'] == percentile]
@@ -82,11 +85,11 @@ def data_folium_local(geo_data, data, percentile):
 
     folium.LayerControl().add_to(map) # 상단 컬러바
 
-    map
+    st_folium(map, width=800, height=600)
 
 # 데이터프레임 시각화
 def data_visual_all(data): # 전체 데이터 출력
-    st.dataframe(data)
+    st.dataframe(data, height = 600, width = 800)
 
 def data_visual_per(data, percentile): # 10분위수 데이터 출력
     data_local = data[data['10분위수'] == percentile]
@@ -94,76 +97,34 @@ def data_visual_per(data, percentile): # 10분위수 데이터 출력
     st.dataframe(data_local)
 
 def run_search():
-    selected = option_menu(None, ["GRDP", "🔎 행정구역별 소득분포", "📁 데이터", "📊 EDA"],
-                           icons=['🏠', '🔎', '📁', '📊'], default_index=0, orientation="horizontal",
-                           styles={
-                               "container": {"padding": "0!important", "background-color": "#cccccc"},
-                               "nav-link": {"font-size": "15px", "text-align": "left", "margin": "0px",
-                                            "--hover-color": "#eee"},
-                               "nav-link-selected": {"background-color": "red"},
-                           }
-                           )
-    if selected == 'GRDP':
-        st.markdown('GRDP')
-        st.markdown('설명') # 지표 설명
+    # 데이터 불러오기
+    geo_data, grdp_data = data_processing()
 
-        # 데이터 불러오기
-        data_processing()
+    st.markdown("""
+    ## 🔎 행정구역별 소득분포 조회결과
+    *※ 왼쪽 사이드바에서 확인하고자 하는 행정구역을 선택하신 후 조회 버튼을 눌러주세요 ※*
+    # """)
 
-        # 셀렉 박스 (전체, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    # 해당하는 행정구역 선택
+    area_select = st.sidebar.selectbox('행정구역', ['충청도', '세종특별시'])
 
-        # 화면을 2:1 비율로 분할
-        col1, col2 = st.columns([2, 1])
-        with col1:
-            st.header("지도")
-        if selectbox == '전체':
-            data_folium_all(geo_data, grdp_data)
-        elif selectbox == '1':
-            data_folium_local(geo_data, grdp_data, 1)
-        elif selectbox == '2':
-            data_folium_local(geo_data, grdp_data, 2)
-        elif selectbox == '3':
-            data_folium_local(geo_data, grdp_data, 3)
-        elif selectbox == '4':
-            data_folium_local(geo_data, grdp_data, 4)
-        elif selectbox == '5':
-            data_folium_local(geo_data, grdp_data, 5)
-        elif selectbox == '6':
-            data_folium_local(geo_data, grdp_data, 6)
-        elif selectbox == '7':
-            data_folium_local(geo_data, grdp_data, 7)
-        elif selectbox == '8':
-            data_folium_local(geo_data, grdp_data, 8)
-        elif selectbox == '9':
-            data_folium_local(geo_data, grdp_data, 9)
-        elif selectbox == '10':
-            data_folium_local(geo_data, grdp_data, 10)
+    # 화면을 분할하고 첫 번재 컬럼의 너비를 두 번재 컬럼의 2배로 설정
+    c1, c2 = st.columns([2, 1])
+    if area_select == '충청도':
+        grdp_select = st.sidebar.slider('10분위수', min_value = 0, max_value = 10, value = None, step=1)
+        button
+        if st.sidebar.button('조회'):
+            result_container = st.empty() # 결과를 보여줄 공간확보
 
-        with col2:
-            st.header("행정구역 정보")
-        if selectbox == '전체':
-            data_visual_all(data)
-        elif selectbox == '1':
-            data_visual_per(data, 1)
-        elif selectbox == '2':
-            data_visual_per(data, 2)
-        elif selectbox == '3':
-            data_visual_per(data, 3)
-        elif selectbox == '4':
-            data_visual_per(data, 4)
-        elif selectbox == '5':
-            data_visual_per(data, 5)
-        elif selectbox == '6':
-            data_visual_per(data, 6)
-        elif selectbox == '7':
-            data_visual_per(data, 7)
-        elif selectbox == '8':
-            data_visual_per(data, 8)
-        elif selectbox == '9':
-            data_visual_per(data, 9)
-        elif selectbox == '10':
-            data_visual_per(data, 10)
-
-    # 추가 선 차트
-    st.markdown('설명')
-    st.markdown('선차트')
+            if grdp_select is 0:
+                with result_container:
+                    with c1:
+                        data_folium_all(geo_data, grdp_data)
+                    with c2:
+                        data_visual_all(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']])
+            else:
+                with result_container:
+                    with c1:
+                        data_folium_local(geo_data, grdp_data, 1)
+                    with c2:
+                        data_visual_per(grdp_data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']], 1)
