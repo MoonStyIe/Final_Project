@@ -14,10 +14,10 @@ import time
 
 def data_processing():
     # 데이터 불러오기
-    geo_data = r'C:\Users\YONSAI\Desktop\Final_Project\data\GRDP.geojson'
+    geo_data = r'data/GRDP.geojson'
     with open(geo_data, encoding = 'utf-8') as f:
         geo_data = json.loads(f.read())
-    grdp_data = pd.read_csv(r'C:\Users\YONSAI\Desktop\Final_Project\data\GRDP_최종.csv',
+    grdp_data = pd.read_csv(r'data/GRDP_최종.csv',
                             encoding = 'cp949')
     return geo_data, grdp_data
 def data_folium_all(geo_data, data):
