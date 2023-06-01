@@ -107,7 +107,7 @@ def run_search():
     # """)
 
     # 해당하는 행정구역 선택
-    area_select = st.sidebar.selectbox('⏏️ 행정구역', ['충청도', '세종특별시'])
+    area_select = st.sidebar.selectbox('⏏️ 행정구역', ['충청도'])
 
     # 화면을 분할하고 첫 번재 컬럼의 너비를 두 번재 컬럼의 2배로 설정
     c1, c2 = st.columns([2, 1])
