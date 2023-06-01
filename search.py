@@ -360,7 +360,7 @@ def run_search():
         grdp_select = st.sidebar.slider('10분위수', min_value = 0, max_value = 10, value = None, step=1)
         if grdp_select == 0:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_all(geo_data, grdp_data)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -368,7 +368,7 @@ def run_search():
 
         elif grdp_select == 1:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 1)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -376,7 +376,7 @@ def run_search():
 
         elif grdp_select == 2:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 2)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -384,7 +384,7 @@ def run_search():
 
         elif grdp_select == 3:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 3)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -392,7 +392,7 @@ def run_search():
 
         elif grdp_select == 4:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 4)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -400,7 +400,7 @@ def run_search():
 
         elif grdp_select == 5:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 5)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -408,7 +408,7 @@ def run_search():
 
         elif grdp_select == 6:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 6)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -416,7 +416,7 @@ def run_search():
 
         elif grdp_select == 7:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 7)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -424,7 +424,7 @@ def run_search():
 
         elif grdp_select == 8:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 8)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -432,7 +432,7 @@ def run_search():
 
         elif grdp_select == 9:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 9)
             with c2:
                 st.markdown("##### 📈 10분위수")
@@ -440,7 +440,7 @@ def run_search():
 
         elif grdp_select == 10:
             with c1:
-                st.markdown("##### 🗺️ 소득분포")
+                st.markdown("##### 🗺️ GRDP 소득분포")
                 data_folium_local(geo_data, grdp_data, 10)
             with c2:
                 st.markdown("##### 📈 10분위수")

@@ -9,6 +9,7 @@ from PIL import Image
 from streamlit_option_menu import option_menu
 from search import run_search
 from data import run_data
+from city import run_city
 
 # 도메인
 st.set_page_config(page_title = '도시 양극화 분석', page_icon = '🌆', layout = 'wide')
@@ -60,8 +61,8 @@ if selected == "🏠 소개":
 elif selected == "🔎 행정구역별 소득분포":
     run_search()
 
-elif selected == "📁 데이터":
-    run_data()
+elif selected == "🏙️ 도시 양극화 지수":
+    run_city()
 
 
 # elif selected == "📊 EDA":
