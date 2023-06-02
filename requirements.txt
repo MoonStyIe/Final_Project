@@ -1,14 +1,7 @@
 pandas
-matplotlib
-seaborn
 plotly
-scikit-learn
+plotly_express
 streamlit
-geopandas
-folium
 streamlit-option-menu
-pingouin
-jupyterlab
-pandas-gbq
-mapboxgl
 streamlit_folium
+folium

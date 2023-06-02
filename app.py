@@ -3,12 +3,8 @@
 
 # 라이브러리
 import streamlit as st
-import pandas as pd
-import numpy as np
-from PIL import Image
 from streamlit_option_menu import option_menu
 from search import run_search
-from data import run_data
 from city import run_city
 
 # 도메인

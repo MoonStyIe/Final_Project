@@ -4,16 +4,9 @@
 import streamlit as st
 import json
 import pandas as pd
-import geopandas as gpd
-import warnings
-import streamlit_folium
 import folium
-from streamlit_option_menu import option_menu
 from streamlit_folium import st_folium
-import time
-import plotly
 import plotly_express as px
-import plotly.graph_objects as go
 
 def data_processing():
     # 데이터 불러오기
