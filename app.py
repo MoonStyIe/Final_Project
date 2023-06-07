@@ -59,7 +59,3 @@ elif selected == "🔎 행정구역별 소득분포":
 
 elif selected == "🏙️ 도시 양극화 지수":
     run_city()
-
-
-# elif selected == "📊 EDA":
-    # load_bigquery()
