@@ -12,8 +12,8 @@ st.set_page_config(page_title = '도시 양극화 분석', page_icon = '🌆', l
 
 # 홈
 st.markdown("<h2 style='text-align: center; color: #333333;'>공간 빅데이터를 활용한 도시 양극화 분석</span></span>", unsafe_allow_html = True)
-selected = option_menu(None, ["🏠 소개", "🔎 행정구역별 소득분포", "🏙️ 도시 양극화 지수", "📁 데이터", "📊 EDA"],
-    icons = ['🏠', '🔎', '📁', '📊'], default_index = 0, orientation = "horizontal",
+selected = option_menu(None, ["🏠 소개", "🔎 행정구역별 소득분포", "🏙️ 도시 양극화 지수", "📁 데이터"],
+    icons = ['🏠', '🔎', '📁'], default_index = 0, orientation = "horizontal",
     styles = {
         "container": {"padding": "0!important", "background-color": "#cccccc"},
         "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
