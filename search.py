@@ -297,7 +297,6 @@ def cons_one_local(geo_data, data, percentile):
 
     st_folium(map, width=1000, height=600)
 
-
 # 1인당 소비금액 선 그래프
 def cons_one_line(data):
     # 데이터프레임 생성
