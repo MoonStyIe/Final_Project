@@ -150,6 +150,8 @@ def grdp_line(grdp_data):
     fig = px.line(df, x = '연도', y = 'GRDP', color = '행정구역', line_group = '행정구역', hover_name = '행정구역',
                 markers = True)
 
+    fig.update_layout(xaxis={'type': 'category'})
+
     st.plotly_chart(fig, use_container_width = 1000)
 
 # 1인당_GRDP folium 시각화 함수
@@ -228,8 +230,13 @@ def grdp_one_line(data):
     df = pd.melt(data, id_vars=['행정구역'], value_vars=['2018년', '2019년', '2020년'],
                  var_name='연도', value_name='GRDP')
 
+    df = df.rename(columns={'GRDP': '1인당 GRDP'})
+
+    df = pd.melt(data, id_vars=['행정구역'], value_vars=['2018년', '2019년', '2020년'],
+                 var_name='연도', value_name='1인당 GRDP')
+
     # 그래프 그리기
-    fig = px.line(df, x='연도', y='GRDP', color='행정구역', line_group='행정구역', hover_name='행정구역',
+    fig = px.line(df, x='연도', y='1인당 GRDP', color='행정구역', line_group='행정구역', hover_name='행정구역',
                   markers=True)
 
     st.plotly_chart(fig, use_container_width = 1000)
@@ -318,6 +325,31 @@ def cons_one_line(data):
 
     st.plotly_chart(fig, use_container_width=1000)
 
+def cons_one_line_2(data):
+    # 데이터프레임 생성
+    data = pd.DataFrame(data)
+
+    # 마크다운
+    st.markdown("##### 📊 선 그래프")
+    st.markdown("""
+    *※ 1인당 소비금액을 행정구역별로 나타낸 선 그래프 ※*
+    # """)
+
+    # 2018~2020년도의 값을 가지는 열들을 선택하여 데이터프레임 재구성
+    df = pd.melt(data, id_vars=['행정구역'], value_vars=['2018년', '2019년', '2020년'],
+                 var_name='연도', value_name='GRDP')
+
+    df = df.rename(columns={'GRDP': '1인당 소비금액'})
+
+    df = pd.melt(data, id_vars=['행정구역'], value_vars=['2018년', '2019년', '2020년'],
+                 var_name='연도', value_name='1인당 소비금액')
+
+    # 그래프 그리기
+    fig = px.line(df, x='연도', y='1인당 소비금액', color='행정구역', line_group='행정구역', hover_name='행정구역',
+                  markers=True)
+
+    st.plotly_chart(fig, use_container_width=1000)
+
 def run_search():
     # 데이터 불러오기
     geo_data, grdp_data = data_processing()
@@ -338,7 +370,7 @@ def run_search():
 
     with c4:
         st.markdown("- *10분위수를 구한 공식* \n", unsafe_allow_html = True)
-        st.markdown("*설명란* \n", unsafe_allow_html = True)
+        st.markdown("*최대값과 최소값을 10분위로 나누어 지역을 나눔* \n", unsafe_allow_html = True)
 
     # 구분선
     st.write('<hr>', unsafe_allow_html=True)
@@ -640,4 +672,4 @@ def run_search():
                 st.markdown("##### 📈 10분위수")
                 data_visual_per3(grdp_data, 10)
 
-        cons_one_line(grdp_data)
+        cons_one_line_2(grdp_data)
