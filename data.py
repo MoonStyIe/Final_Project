@@ -114,11 +114,10 @@ def run_data():
                 folium_visual_title(data_2018, geo_data_2018, '양극화지수', '양극화 지수')
             with c4:
                 st.markdown("<h4 style='font-size: 24px; color: #333333;'>✔️ 양극화 지수에 대한 설명 </h4>\n", unsafe_allow_html=True)
-                text = '''\n 예시) 2018년 기준\n
-청주시 흥덕구 양극화 지수 : -81.7\n
-예산군 양극화 지수 : 33.9 \n
--> 청주시 흥덕구와 예산군은 양극화 지수가 115.6 차이가 난다고 볼 수 있습니다.'''
-                st.text_area('　', value=text, height=200)
+                st.markdown("""\n*예시) 2018년 기준*\n
+- 청주시 흥덕구 양극화 지수 : -81.7\n
+- 예산군 양극화 지수 : 33.9 \n
+➡️ 청주시 흥덕구와 예산군은 양극화 지수가 <b>115.6</b> 차이가 난다고 볼 수 있습니다.""", unsafe_allow_html=True)
 
         elif jisu_select == '양극화 여부':
             with c3:
