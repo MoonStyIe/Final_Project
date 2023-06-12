@@ -124,12 +124,9 @@ def run_data():
                 folium_visual_title(data_2018, geo_data_2018, '양극화', '양극화 여부')
             with c4:
                 st.markdown("<h4 style='font-size: 24px; color: #333333;'>✔️ 양극화 여부에 대한 설명 </h4>\n", unsafe_allow_html=True)
-
-                text = '''\n: 각 년도별 평균을 기준으로 평균보다 높은 값은 양극화라고 판단하였습니다.\n
-양극화가 1인 경우 전국평균에 비해 공공시설의 인구비율이 높으며, 주택가격, 1인당 소비가격, GRDP의 값이 높다는 뜻입니다.\n
-즉, 인구가 다른 시,군에 비해 많이 사는 도시입니다. 양극화가 0인 경우 전국 평균에 비해 공공시설의 인구비율이 낮으며, 주택가격, 1인당 소비가격, GRDP의 값이 낮다는 뜻입니다.\n
-결과적으로 인구가 다른 시,군에 비해 적게 사는 도시입니다.\n'''
-                st.text_area('　', value=text, height=200)
+                st.markdown("""\n*1차 지수 vs 최종 지수*\n
+- 1차 지수 : 경제적 영역 위주로 변수 설정 (전국 평균 : 약 40)\n
+- 최종 지수 : 사회적 영역 위주로 변수 설정 (전국 평균 : 약 8)\n""", unsafe_allow_html=True)
 
     elif year_select == '2019년':
         jisu_select = st.sidebar.selectbox('⏏️ 목록', ['사회 지수', '경제 지수', '양극화 지수', '양극화 여부'])
@@ -146,10 +143,14 @@ def run_data():
                 st.text_area('　', value=text, height=200)
 
                 st.markdown("""
-                                - 어린이집 및 유치원 서비스권역 내 영유아인구비율 \n
-                                - 초등학교 서비스권역 내 학령인구 비율 \n
-                                - 병원, 주차장, 도서관, 공공체육시설 서비스권역 내 인구 비율 \n
-                                """, unsafe_allow_html=True)
+                - 녹지율 \n
+                - 상수도 보급률 격차 \n
+                - 교원 1인당 담당 학생 수 격차 \n
+                - 어린이집 및 유치원 서비스권역 내 영유아 인구 비율 \n
+                - 초등학교 서비스권역 내 학령인구 비율 \n
+                - 인구 10만명당 문화기반 시설 수 격차 \n
+                - 병원, 공공체육시설 서비스권역 내 인구 비율 \n
+                """, unsafe_allow_html=True)
 
         elif jisu_select == '경제 지수':
             with c3:
@@ -163,14 +164,10 @@ def run_data():
                 st.text_area('　', value=text, height=200)
 
                 st.markdown("""
-                                \n <자산>
-                                \n - 주택보급률 \n
-                                \n - 노후주택비율 \n
-                                \n - 주택가격 격차 \n
-                                \n <소득과 소비> \n
-                                \n - 1인당 소비가격 격차 \n
-                                \n - GRDP 격차 \n
-                                \n""", unsafe_allow_html=True)
+                - 노후주택비율 \n
+                - 주택가격 격차 \n
+                - 1인당 소비 가격 격차 \n
+                \n""", unsafe_allow_html=True)
 
         elif jisu_select == '양극화 지수':
             with c3:
@@ -211,10 +208,14 @@ def run_data():
                 st.text_area('　', value=text, height=200)
 
                 st.markdown("""
-                                - 어린이집 및 유치원 서비스권역 내 영유아인구비율 \n
-                                - 초등학교 서비스권역 내 학령인구 비율 \n
-                                - 병원, 주차장, 도서관, 공공체육시설 서비스권역 내 인구 비율 \n
-                                """, unsafe_allow_html=True)
+                - 녹지율 \n
+                - 상수도 보급률 격차 \n
+                - 교원 1인당 담당 학생 수 격차 \n
+                - 어린이집 및 유치원 서비스권역 내 영유아 인구 비율 \n
+                - 초등학교 서비스권역 내 학령인구 비율 \n
+                - 인구 10만명당 문화기반 시설 수 격차 \n
+                - 병원, 공공체육시설 서비스권역 내 인구 비율 \n
+                """, unsafe_allow_html=True)
 
         elif jisu_select == '경제 지수':
             with c3:
@@ -228,14 +229,10 @@ def run_data():
                 st.text_area('　', value=text, height=200)
 
                 st.markdown("""
-                                \n <자산>
-                                \n - 주택보급률 \n
-                                \n - 노후주택비율 \n
-                                \n - 주택가격 격차 \n
-                                \n <소득과 소비> \n
-                                \n - 1인당 소비가격 격차 \n
-                                \n - GRDP 격차 \n
-                                \n""", unsafe_allow_html=True)
+                - 노후주택비율 \n
+                - 주택가격 격차 \n
+                - 1인당 소비 가격 격차 \n
+                \n""", unsafe_allow_html=True)
 
         elif jisu_select == '양극화 지수':
             with c3:
@@ -276,10 +273,14 @@ def run_data():
                 st.text_area('　', value=text, height=200)
 
                 st.markdown("""
-                                - 어린이집 및 유치원 서비스권역 내 영유아인구비율 \n
-                                - 초등학교 서비스권역 내 학령인구 비율 \n
-                                - 병원, 주차장, 도서관, 공공체육시설 서비스권역 내 인구 비율 \n
-                                """, unsafe_allow_html=True)
+                - 녹지율 \n
+                - 상수도 보급률 격차 \n
+                - 교원 1인당 담당 학생 수 격차 \n
+                - 어린이집 및 유치원 서비스권역 내 영유아 인구 비율 \n
+                - 초등학교 서비스권역 내 학령인구 비율 \n
+                - 인구 10만명당 문화기반 시설 수 격차 \n
+                - 병원, 공공체육시설 서비스권역 내 인구 비율 \n
+                """, unsafe_allow_html=True)
 
         elif jisu_select == '경제 지수':
             with c3:
@@ -293,14 +294,10 @@ def run_data():
                 st.text_area('　', value=text, height=200)
 
                 st.markdown("""
-                                \n <자산>
-                                \n - 주택보급률 \n
-                                \n - 노후주택비율 \n
-                                \n - 주택가격 격차 \n
-                                \n <소득과 소비> \n
-                                \n - 1인당 소비가격 격차 \n
-                                \n - GRDP 격차 \n
-                                \n""", unsafe_allow_html=True)
+                - 노후주택비율 \n
+                - 주택가격 격차 \n
+                - 1인당 소비 가격 격차 \n
+                \n""", unsafe_allow_html=True)
 
         elif jisu_select == '양극화 지수':
             with c3:
