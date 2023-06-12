@@ -121,7 +121,7 @@ def run_data():
 
         elif jisu_select == '양극화 여부':
             with c3:
-                folium_visual_title(data_2018, geo_data_2018, 'target', '양극화 여부')
+                folium_visual_title(data_2018, geo_data_2018, '양극화', '양극화 여부')
             with c4:
                 st.markdown("<h4 style='font-size: 24px; color: #333333;'>✔️ 양극화 여부에 대한 설명 </h4>\n", unsafe_allow_html=True)
 
@@ -185,7 +185,7 @@ def run_data():
 
         elif jisu_select == '양극화 여부':
             with c3:
-                folium_visual_title(data_2019, geo_data_2019, 'target', '양극화 여부')
+                folium_visual_title(data_2019, geo_data_2019, '양극화', '양극화 여부')
             with c4:
                 st.markdown("<h4 style='font-size: 24px; color: #333333;'>✔️ 양극화 여부에 대한 설명 </h4>\n",
                             unsafe_allow_html=True)
@@ -250,7 +250,7 @@ def run_data():
 
         elif jisu_select == '양극화 여부':
             with c3:
-                folium_visual_title(data_2020, geo_data_2020, 'target', '양극화 여부')
+                folium_visual_title(data_2020, geo_data_2020, '양극화', '양극화 여부')
             with c4:
                 st.markdown("<h4 style='font-size: 24px; color: #333333;'>✔️ 양극화 여부에 대한 설명 </h4>\n",
                             unsafe_allow_html=True)
@@ -315,7 +315,7 @@ def run_data():
 
         elif jisu_select == '양극화 여부':
             with c3:
-                folium_visual_title(data_2021, geo_data_2021, 'target', '양극화 여부')
+                folium_visual_title(data_2021, geo_data_2021, '양극화', '양극화 여부')
             with c4:
                 st.markdown("<h4 style='font-size: 24px; color: #333333;'>✔️ 양극화 여부에 대한 설명 </h4>\n",
                             unsafe_allow_html=True)
