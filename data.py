@@ -84,9 +84,13 @@ def run_data():
                 st.text_area('　', value=text, height=200)
 
                 st.markdown("""
-                - 어린이집 및 유치원 서비스권역 내 영유아인구비율 \n
+                - 녹지율 \n
+                - 상수도 보급률 격차 \n
+                - 교원 1인당 담당 학생 수 격차 \n
+                - 어린이집 및 유치원 서비스권역 내 영유아 인구 비율 \n
                 - 초등학교 서비스권역 내 학령인구 비율 \n
-                - 병원, 주차장, 도서관, 공공체육시설 서비스권역 내 인구 비율 \n
+                - 인구 10만명당 문화기반 시설 수 격차 \n
+                - 병원, 공공체육시설 서비스권역 내 인구 비율 \n
                 """, unsafe_allow_html=True)
 
         elif jisu_select == '경제 지수':
@@ -100,13 +104,9 @@ def run_data():
                 st.text_area('　', value=text, height=200)
 
                 st.markdown("""
-                \n <자산>
-                \n - 주택보급률 \n
-                \n - 노후주택비율 \n
-                \n - 주택가격 격차 \n
-                \n <소득과 소비> \n
-                \n - 1인당 소비가격 격차 \n
-                \n - GRDP 격차 \n
+                - 노후주택비율 \n
+                - 주택가격 격차 \n
+                - 1인당 소비 가격 격차 \n
                 \n""", unsafe_allow_html=True)
 
         elif jisu_select == '양극화 지수':
@@ -114,9 +114,10 @@ def run_data():
                 folium_visual_title(data_2018, geo_data_2018, '양극화지수', '양극화 지수')
             with c4:
                 st.markdown("<h4 style='font-size: 24px; color: #333333;'>✔️ 양극화 지수에 대한 설명 </h4>\n", unsafe_allow_html=True)
-                text = '''\n: 사회영역과 경제영역을 산술평균하여 종합 지수를 산출하였습니다.\n
-양극화 지수가 높을수록 전국의 기준보다 낮다는 뜻이며, \n양극화 지수가 낮을수록 전국의 기준보다 높다는 뜻입니다.\n
-서로의 격차를 이용하여 충청권의 양극화 지수가 얼마나 값이 차이나는지 확인할 수 있습니다.\n'''
+                text = '''\n 예시) 2018년 기준\n
+청주시 흥덕구 양극화 지수 : -81.7\n
+예산군 양극화 지수 : 33.9 \n
+-> 청주시 흥덕구와 예산군은 양극화 지수가 115.6 차이가 난다고 볼 수 있습니다.'''
                 st.text_area('　', value=text, height=200)
 
         elif jisu_select == '양극화 여부':
