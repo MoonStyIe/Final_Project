@@ -8,23 +8,23 @@ import folium
 from streamlit_folium import st_folium
 
 def data_coming():
-    data_2018 = pd.read_csv(r'data/2018년.csv', encoding = 'cp949')
-    geo_data_2018 = r'data/2018년.geojson'
+    data_2018 = pd.read_csv(r'data/2018년_최종.csv', encoding = 'cp949')
+    geo_data_2018 = r'data/2018년_최종.geojson'
     with open(geo_data_2018, encoding = 'utf-8') as f:
         geo_data_2018 = json.loads(f.read())
 
-    data_2019 = pd.read_csv(r'data/2019년.csv', encoding = 'cp949')
-    geo_data_2019 = r'data/2019년.geojson'
+    data_2019 = pd.read_csv(r'data/2019년_최종.csv', encoding = 'cp949')
+    geo_data_2019 = r'data/2019년_최종.geojson'
     with open(geo_data_2019, encoding = 'utf-8') as f:
         geo_data_2019 = json.loads(f.read())
 
-    data_2020 = pd.read_csv(r'data/2020년.csv', encoding = 'cp949')
-    geo_data_2020 = r'data/2020년.geojson'
+    data_2020 = pd.read_csv(r'data/2020년_최종.csv', encoding = 'cp949')
+    geo_data_2020 = r'data/2020년_최종.geojson'
     with open(geo_data_2020, encoding = 'utf-8') as f:
         geo_data_2020 = json.loads(f.read())
 
-    data_2021 = pd.read_csv(r'data/2021년.csv', encoding = 'cp949')
-    geo_data_2021 = r'data/2021년.geojson'
+    data_2021 = pd.read_csv(r'data/2021년_최종.csv', encoding = 'cp949')
+    geo_data_2021 = r'data/2021년_최종.geojson'
     with open(geo_data_2021, encoding = 'utf-8') as f:
         geo_data_2021 = json.loads(f.read())
 
@@ -58,7 +58,7 @@ def folium_visual_title(data, geo_data, col, kw):
 
     st_folium(map, width=1000, height=600)
 
-def run_city():
+def run_data():
     data_2018, geo_data_2018, data_2019, geo_data_2019, data_2020, geo_data_2020, data_2021, geo_data_2021 = data_coming()
     st.markdown("""
     ### 🔎 도시 양극화 지수에 따른 지도시각화 조회결과

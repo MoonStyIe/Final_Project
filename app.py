@@ -6,6 +6,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from search import run_search
 from city import run_city
+from data import run_data
 
 # 도메인
 st.set_page_config(page_title = '도시 양극화 분석', page_icon = '🌆', layout = 'wide')
@@ -59,3 +60,6 @@ elif selected == "🔎 행정구역별 소득분포":
 
 elif selected == "🏙️ 도시 양극화 1차 지수":
     run_city()
+
+elif selected == "🧾 도시 양극화 최종 지수":
+    run_data()
