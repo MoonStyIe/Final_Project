@@ -150,6 +150,7 @@ def grdp_line(grdp_data):
     fig = px.line(df, x = '연도', y = 'GRDP', color = '행정구역', line_group = '행정구역', hover_name = '행정구역',
                 markers = True)
 
+    # x축을 범주형으로 설정(x축이 연속형으로 설정되어 2,015.5 <- 이런식으로 나오는 것들을 없애기 위함)
     fig.update_layout(xaxis={'type': 'category'})
 
     st.plotly_chart(fig, use_container_width = 1000)
