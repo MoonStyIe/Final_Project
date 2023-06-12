@@ -26,12 +26,7 @@ selected = option_menu(None, ["🏠 개요", "🔎 행정구역별 소득분포"
 # 홈 탭
 if selected == "🏠 개요":
 
-    image_path = "img/도시양극화사진.jpg"
-    image = Image.open(image_path)
-
-    st.image(image, use_column_width=True, caption="도시 양극화")
-
-# 프로젝트 개요
+    # 프로젝트 개요
     st.markdown("<h2 style='font-size: 24px; color: #333333;'>🔬 프로젝트 개요</h2>", unsafe_allow_html=True)
     st.write(
         """
