@@ -46,7 +46,7 @@ if selected == "🏠 개요":
     markdown_string = (
         "[![GIT PAGE](https://img.shields.io/badge/tistory-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://github.com/MoonStyIe)\n"
         "[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://moonstyle1997.tistory.com/)\n"
-        "[![Microsoft PowerPoint](https://img.shields.io/badge/portfolio-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)]()\n"
+        "[![Microsoft PowerPoint](https://img.shields.io/badge/portfolio-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)](https://github.com/MoonStyIe/Final_Project/blob/1a3c00ef5b5b527e32ea34a823636a4a41407834/pdf/%EB%8F%84%EC%8B%9C%20%EC%96%91%EA%B7%B9%ED%99%94%20%EC%B5%9C%EC%A2%85%20%EC%99%84%EC%84%B1%EB%B3%B8.pdf)\n"
         "[![YouTube](https://img.shields.io/badge/presentation-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)]()\n"
         "[![PyCharm](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green)](https://www.jetbrains.com/ko-kr/pycharm/download/#section=windows)\n"
         "[![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)\n"
