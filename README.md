@@ -1,38 +1,91 @@
-# Final Project - 도시 양극화 (2023.05.22 ~)
+# 충청권 도시 양극화 프로젝트 (2023.05.22 ~ 2023.06.14)
 <br/>
 
----
+## [1. Streamlit 웹 서비스](https://sukyungjang-final-project-app-j1pife.streamlit.app/ "Streamlit Link")<br/>
 
-[![Blogger](https://img.shields.io/badge/tistory-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://moonstyle1997.tistory.com/)
-[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MoonStyIe)
-[![Microsoft PowerPoint](https://img.shields.io/badge/portfolio-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)](https://github.com/MoonStyIe/Parkinson/blob/9bed58006a8d646d4058b96eca4f8704263e94c2/pdf/2%EC%A1%B0_%ED%8C%8C%ED%82%A8%EC%8A%A8_%EC%A7%88%EB%B3%91_%EC%A7%84%EB%8B%A8%EC%98%88%EC%B8%A1.pdf)
-[![YouTube](https://img.shields.io/badge/presentation-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://youtu.be/XZtytuxL8ws)
-[![Mega.nz](https://img.shields.io/badge/Homepage-%23D90007.svg?style=for-the-badge&logo=home-assistant&logoColor=white)](https://github.com/MoonStyIe/Parkinson/blob/e4ea531c446b2dbe079b19ce68930753cfd72afa/img/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.png)
+## [2. 발표 영상](https://www.youtube.com/watch?v=YZGgZdaFF78 "Presentation Link")<br/>
+
+## [3. PDF 파일](https://github.com/SukyungJang/Store_Sales_Project/blob/main/pdf/Attention_final.pdf "PDF Link")<br/>
 
 ---
 
 ## 💡 목적
 
+충청권 도시에 대해 소득 분포 별 공간 분석 및 지도 시각화, 충청권 도시 양극화 지수 개발, 이에 따른 웹 서비스 구현
 <br/>
 
 ## 📁 데이터
 
-<br/>
+균형발전지표: <https://www.nabis.go.kr/totalStatisticsDetailView.do?menucd=168> <br/>
+충청권 e-지방지표: <https://kostat.go.kr/menu.es?mid=a70501000000> <br/>
+NABIS 국가균형발전종합정보시스템: <https://www.nabis.go.kr/> <br/>
+인스파일러 데이터 활용 포털: <https://insfiler.com/> <br/>
+세종경영자문: <http://sjcounsel.com/> <br/>
 
 ## 📊 ERD
+
+![image](https://github.com/SukyungJang/Final_Project/blob/main/img/ERD.png)
 
 <br/>
 
 ## 🧑‍🤝‍🧑 팀 구성
 
+- 사용언어 : Python 3.10.10
+- 작업툴 : VS Code, pycharm
+- 인원 : 3명
+- 주요 업무 : 소득 분포 별 공간 분석 및 지도 시각화, 도시 양극화 지수 개발, 웹 서비스 구현
+- 기간 : 2023.05.22 ~ 2023.06.14
 <br/>
 
 ## 💻 주요 기능
 
-<br/>
+- **개요**
+  - 프로젝트 개요 설명
+
+- **행정구역별 소득분포**
+  - 충청권 지역별 GRDP, 1인당 GRDP, 1인당 소비금액 10분위 분배 및 지도 시각화
+
+![image](https://github.com/SukyungJang/Final_Project/blob/main/img/GRDP.png)
+
+  - 연도별 선 그래프
+
+![image](https://github.com/SukyungJang/Final_Project/blob/main/img/GRDPLINE.png)
+
+- **1차 도시 양극화 지수**
+  - 충남형 도시 양극화 지수와 균형발전지표 활용 1차 도시 양극화 지수 개발을 활용한 지도 시각화
+
+![image](https://github.com/SukyungJang/Final_Project/blob/main/img/1차양극화.png)
+
+- **최종 도시 양극화 지수**
+  - 1차 양극화 지수를 로지스틱 회귀분석을 통해 개발하여 최종 도시 양극화 지수 개발을 활용한 지도 시각화
+
+![image](https://github.com/SukyungJang/Final_Project/blob/main/img/최종양극화.png)
 
 ## 📥 설치 방법
 
+### Windows
+- 버전 확인
+  - VS Code : 
+  - Python : 3.10.10
+  - 라이브러리 : Json(0.9.14), Pandas(2.0.1), Folium(0.14.0), Plotly(5.14.1), Plotly_express(0.4.1), streamlit(1.22.0), scikit-learn(1.2.2), seaborn(0.12.2)
+
+- 프로젝트 파일을 다운로드 받습니다.
+```
+git clone https://github.com/SukyungJang/Final_Project.git
+```
+- 프로젝트 경로에서 가상환경 설치 후 접속합니다. (Windows 10 기준)
+```
+virtualenv venv
+source venv/Scripts/activate
+```
+- 라이브러리를 설치합니다.
+```
+pip install -r requirements.txt
+```
+- streamlit 명령어를 실행합니다.
+```
+streamlit run app.py
+```
 <br/>
 
 ## 📅 주요 기능 업데이트 내용 <br/>
@@ -92,6 +145,8 @@
 - 분석
     + 회귀분석 공부
 
+---
+
 *2023-05-26(금)*
 - 대시보드
     + 조회 탭 재구성
@@ -140,3 +195,49 @@
     + folium 라이브러리를 이용한 시각화 데이터
 
 ---
+
+2023-06-01(목)
+- 대시보드
+    + 행적구역별 소득분포 탭 완성
+    + 도시 양극화 지수 탭 작성
+- PPT
+    + 목차 재작성
+    + 웹서비스 소개 구조화
+- 분석
+    + 지수 개발
+    + 로지스틱 회귀분석 검증
+- ERD
+    + folium을 이용해 행적구역별 소득분포 탭 시각화 작성
+    + folium을 이용해 도시 양극화 지수 탭 시각화 작성
+
+---
+
+2023-06-02(금)
+- 대시보드
+    + 도시 양극화 지수 탭 재작성
+- PPT
+    + 모든 탭 재구성
+- ERD
+    + folium을 이용해 도시 양극화 지수 탭 시각화 작성
+
+---
+
+2023-06-05(월)
+- PPT
+    + 탭 재구성
+
+---
+
+2023-06-07(화)
+- 대시보드
+    + 도시 양극화 지수 시각화 추가
+    + 도시 양극화 지수 설명 추가
+- PPT
+    + 개요 탭 재구성
+    + 공간 분석 탭 재구성
+- ERD
+    + folium을 이용한 도시 양극화 지수 시각화
+
+---
+2023-06-08(수) ~ 
+- PPT 정리
