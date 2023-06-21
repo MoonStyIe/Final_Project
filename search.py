@@ -9,7 +9,7 @@ from streamlit_folium import st_folium
 import plotly_express as px
 
 def data_processing():
-    # 데이터 불러오기
+    '''GRDP 데이터 불러오는 함수'''
     geo_data = r'data/GRDP.geojson'
     with open(geo_data, encoding = 'utf-8') as f:
         geo_data = json.loads(f.read())
@@ -18,7 +18,7 @@ def data_processing():
     return geo_data, grdp_data
 
 def data_processing2():
-    # 데이터 불러오기
+    '''1인당 GRDP 데이터 불러오는 함수'''
     geo_data = r'data/1인당_GRDP.geojson'
     with open(geo_data, encoding = 'utf-8') as f:
         geo_data = json.loads(f.read())
@@ -27,7 +27,7 @@ def data_processing2():
     return geo_data, grdp_data
 
 def data_processing3():
-    # 데이터 불러오기
+    '''1인당 소비금액 데이터 불러오는 함수'''
     geo_data = r'data/1인당_소비금액.geojson'
     with open(geo_data, encoding = 'utf-8') as f:
         geo_data = json.loads(f.read())
@@ -36,6 +36,7 @@ def data_processing3():
     return geo_data, grdp_data
 
 def data_folium_all(geo_data, data):
+    '''folium 지도 시각화 함수'''
     map = folium.Map(location=[36.6425, 127.489], zoom_start=9)
 
     folium.Choropleth(
@@ -68,6 +69,7 @@ def data_folium_all(geo_data, data):
     st_folium(map, width=1000, height=600)
 
 def data_folium_local(geo_data, data, percentile):
+    '''folium 지역별 지도 시각화 함수'''
     data_local = data[data['10분위수'] == percentile]
 
     map = folium.Map(location=[36.6425, 127.489], zoom_start=9) # 지도 생성
@@ -104,35 +106,43 @@ def data_folium_local(geo_data, data, percentile):
     st_folium(map, width=1000, height=600)
 
 # 데이터프레임 시각화
-def data_visual_all_1(data): # 전체 데이터 출력
+def data_visual_all_1(data):
+    '''전체 데이터 출력 함수'''
     data = data[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']]
     st.dataframe(data, height = 600, width = 800)
 
-def data_visual_all_2(data): # 전체 데이터 출력
+def data_visual_all_2(data):
+    '''전체 데이터 출력 함수'''
     data = data[['행정구역', '2018년', '2019년', '2020년', '10분위수']]
     st.dataframe(data, height = 600, width = 800)
 
-def data_visual_all_3(data): # 전체 데이터 출력
+def data_visual_all_3(data):
+    '''전체 데이터 출력 함수'''
     data = data[['행정구역', '2018년', '2019년', '2020년', '10분위수']]
     st.dataframe(data, height = 600, width = 800)
 
-def data_visual_per(data, percentile): # 10분위수 데이터 출력
+def data_visual_per(data, percentile):
+    '''10분위수 데이터 출력 함수'''
     data_local = data[data['10분위수'] == percentile]
     data_local = data_local[['행정구역', '2015', '2016', '2017', '2018', '2019', '10분위수']]
     st.dataframe(data_local)
 
-def data_visual_per2(data, percentile): # 10분위수 데이터 출력
+def data_visual_per2(data, percentile):
+    '''10분위수 데이터 출력 함수'''
     data_local = data[data['10분위수'] == percentile]
     data_local = data_local[['행정구역', '2018년', '2019년', '2020년', '10분위수']]
     st.dataframe(data_local)
 
-def data_visual_per3(data, percentile): # 10분위수 데이터 출력
+def data_visual_per3(data, percentile):
+    '''10분위수 데이터 출력 함수'''
     data_local = data[data['10분위수'] == percentile]
     data_local = data_local[['행정구역', '2018년', '2019년', '2020년', '10분위수']]
     st.dataframe(data_local)
 
 # 선 차트
 def grdp_line(grdp_data):
+    '''GRDP 선 그래프 함수'''
+
     # 데이터프레임 생성
     grdp_data = pd.DataFrame(grdp_data)
 
@@ -185,6 +195,7 @@ def grdp_one_all(geo_data, data):
 
 # 1인당_GRDP 10분위수별 folium 시각화 함수
 def grdp_one_local(geo_data, data, percentile):
+    '''1인당 GRDP 지도 시각화 함수'''
     grdp_local = data[data['10분위수'] == percentile]
     map = folium.Map(location = [36.6425, 127.489], zoom_start = 9)
 
@@ -218,6 +229,7 @@ def grdp_one_local(geo_data, data, percentile):
 
 # 1인당 grdp 선 그래프
 def grdp_one_line(data):
+    '''1인당 GRDP 선 그래프 함수'''
     # 데이터프레임 생성
     data = pd.DataFrame(data)
 
@@ -244,6 +256,7 @@ def grdp_one_line(data):
 
 # 1인당 소비금액 folium 시각화
 def cons_one_all(geo_data, data):
+    '''1인당 소비금액 지도 시각화 함수'''
     map = folium.Map(location = [36.6425, 127.489], zoom_start = 9)
 
     folium.Choropleth(
@@ -275,6 +288,7 @@ def cons_one_all(geo_data, data):
 
 # 1인당 소비금액 지역별 folium 시각화
 def cons_one_local(geo_data, data, percentile):
+    '''1인당 소비금액 지도 시각화 함수'''
     grdp_local = data[data['10분위수'] == percentile]
     map = folium.Map(location = [36.6425, 127.489], zoom_start = 9)
 
@@ -307,6 +321,7 @@ def cons_one_local(geo_data, data, percentile):
 
 # 1인당 소비금액 선 그래프
 def cons_one_line(data):
+    '''1인당 소비금액 선 그래프 함수'''
     # 데이터프레임 생성
     data = pd.DataFrame(data)
 

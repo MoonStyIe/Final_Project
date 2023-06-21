@@ -44,10 +44,10 @@ if selected == "🏠 개요":
 # 링크
     st.markdown("<h2 style='font-size: 24px; color: #333333;'>🔗 링크</h2>", unsafe_allow_html=True)
     markdown_string = (
-        "[![Blogger](https://img.shields.io/badge/tistory-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://moonstyle1997.tistory.com/)\n"
-        "[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MoonStyIe/Final_Project)\n"
-        "[![Microsoft PowerPoint](https://img.shields.io/badge/portfolio-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)](https://github.com/MoonStyIe/Parkinson/blob/9bed58006a8d646d4058b96eca4f8704263e94c2/pdf/2%EC%A1%B0_%ED%8C%8C%ED%82%A8%EC%8A%A8_%EC%A7%88%EB%B3%91_%EC%A7%84%EB%8B%A8%EC%98%88%EC%B8%A1.pdf)\n"
-        "[![YouTube](https://img.shields.io/badge/presentation-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://youtu.be/XZtytuxL8ws)\n"
+        "[![GIT PAGE](https://img.shields.io/badge/tistory-FF5722?style=for-the-badge&logo=blogger&logoColor=white)](https://sukyungjang.github.io/)\n"
+        "[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SukyungJang/Final_Project)\n"
+        "[![Microsoft PowerPoint](https://img.shields.io/badge/portfolio-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white)]()\n"
+        "[![YouTube](https://img.shields.io/badge/presentation-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)]()\n"
         "[![PyCharm](https://img.shields.io/badge/pycharm-143?style=for-the-badge&logo=pycharm&logoColor=black&color=black&labelColor=green)](https://www.jetbrains.com/ko-kr/pycharm/download/#section=windows)\n"
         "[![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)\n"
         "[![Microsoft Excel](https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)](https://www.microsoft.com/ko-kr/microsoft-365/excel)\n"

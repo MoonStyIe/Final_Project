@@ -8,6 +8,7 @@ import folium
 from streamlit_folium import st_folium
 
 def data_coming():
+    '''데이터 불러오는 함수'''
     data_2018 = pd.read_csv(r'data/2018년.csv', encoding = 'cp949')
     geo_data_2018 = r'data/2018년.geojson'
     with open(geo_data_2018, encoding = 'utf-8') as f:
@@ -32,6 +33,7 @@ def data_coming():
 
 # folium 시각화
 def folium_visual_title(data, geo_data, col, kw):
+    '''folium 지도 시각화 함수'''
     map = folium.Map(location = [36.6425, 127.489], zoom_start = 9)
 
     folium.Choropleth(

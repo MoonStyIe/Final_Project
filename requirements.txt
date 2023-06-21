@@ -5,3 +5,7 @@ streamlit
 streamlit-option-menu
 streamlit_folium
 folium
+scikit-learn
+seaborn
+geopandas
+matplotlib.pyplot
